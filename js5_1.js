@@ -1,0 +1,31 @@
+var $chess = document.getElementById('chess')
+var $chessBoard = document.createElement('div')
+$chessBoard.classList.add('chessboard')
+var $wrapper = document.createElement('div')
+$wrapper.classList.add('wrapper')
+var $chessField = document.createElement('div')
+$chessField.classList.add('chessfield')
+$wrapper.appendChild($chessField)
+$chessBoard.appendChild($wrapper)
+$chess.appendChild($chessBoard)
+var $letters = document.createElement('div')
+$letters.classList.add('letters')
+$chessBoard.appendChild($letters)
+var $numbers = document.createElement('div')
+$numbers.classList.add('numberswrap')
+$wrapper.appendChild($numbers)
+for (var i = 0; i < 8; i++) {
+    var $letter = document.createElement('div')
+    $letter.classList.add('letter')
+    $letter.textContent = String.fromCharCode(65 + i)
+    $letters.appendChild($letter)
+    var $number = document.createElement('div')
+    $number.classList.add('number')
+    $number.textContent = i + 1
+    $numbers.appendChild($number)
+    for (var j = 0; j < 8; j++) {
+        var $cell = document.createElement('div')
+        $cell.classList.add((i + j) % 2 === 0 ? 'white' : 'black')
+        $chessField.appendChild($cell)
+    }
+}
